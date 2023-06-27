@@ -1,53 +1,17 @@
-%!TEX TS-program = xelatex
-%!TEX encoding = UTF-8 Unicode
-% Awesome CV LaTeX Template
-%
-% This template has been downloaded from:
-% https://github.com/posquit0/Awesome-CV
-%
-% Author:
-% Claud D. Park <posquit0.bj@gmail.com>
-% http://www.posquit0.com
-%
-% Template license:
-% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
-%
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Configuration
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Themes: Awesome-CV
 \documentclass[12pt, letterpaper]{resume}
 \setlength{\parskip}{2pt}
-%%% Configure a directory location for sections
-\newcommand*{\sectiondir}{resume/}
-
-
-%%% Override color
-% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
-%                 awesome-nephritis, awesome-concrete, awesome-darknight
-%% Color for highlight
-% Define your custom color if you don't like awesome colors
-%\colorlet{awesome}{awesome-darknight}
-%\definecolor{awesome}{HTML}{000000}
-%% Colors for text
-%\definecolor{darktext}{HTML}{000000}
-%\definecolor{text}{HTML}{000000}
-%\definecolor{graytext}{HTML}{000000}
-%\definecolor{lighttext}{HTML}{000000}
-
-%%% Override a separator for social informations in header(default: ' | ')
-%\headersocialsep[\quad\textbar\quad]
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     3rd party packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Needed to divide into several files
-\usepackage{import}
 
-%icons
+%%% font
+\usepackage{lmodern}
+
+%%% icons
 \usepackage{fontawesome}
 
 
@@ -67,32 +31,25 @@
     {\hspace{0.1em}}
     \href{https://www.linkedin.com/in/christopher-thomas-5b1583188/}{\faLinkedin} 
     {\hspace{0.1em}}
-    \href{https://github.com/Synphos}{\faGithubAlt}
+    \href{https://github.com/chriskthomas}{\faGithubAlt}
 }
-%\mobile{(+82) 10-9030-1843} 
-%%% Social
-%\email{posquit0.bj@gmail.com}
-%\homepage{www.posquit0.com}
-%\github{posquit0}
-%\linkedin{christopher-thomas-5b1583188}
+
 %%% Optionals
 \position{Teacher at The Churchill School}
 \quote{Engineering teacher with a background in technical support and marketing analytics}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Content
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Make a footer for CV with three arguments(<left>, <center>, <right>)
-
 \begin{document}
+
 %%% Make a header for CV with personal data
 \makecvheader
 
 %%% Import contents
-\import{\sectiondir}{education}
-\import{\sectiondir}{experience}
-
-\import{\sectiondir}{honors}
-\import{\sectiondir}{extracurricular}
-
+\input{resume/education}
+\input{resume/experience}
+\input{resume/honors}
+\input{resume/extracurricular}
 
 \end{document}
