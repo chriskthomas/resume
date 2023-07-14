@@ -72,8 +72,8 @@
     \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\}}
     \vspace{-0.5mm}
     \ifthenelse{\isundefined{\@quote}}
-      {\vspace{2.0mm}}
-      {
+    {\vspace{2.0mm}}
+    {
       \vspace{1.2mm}
       \rule{\textwidth}{0.4pt}
       \vspace{1.0mm}
@@ -91,9 +91,9 @@
 \sectionfont{\fontsize{14pt}{1em} \sectionrule{0pt}{0pt}{-0.6ex}{1pt} }
 % Define a section for CV
 \newcommand{\cvsection}[1]{
-    \vspace{-3.5ex}
-    \section*{#1}
-    \vspace{-1ex}
+  \vspace{-3.5ex}
+  \section*{#1}
+  \vspace{-1ex}
 }
 
 %-------------------------------------------------------------------------------
@@ -107,23 +107,23 @@
 % ### Entry Environment
 \newenvironment{cventries}{
   \begin{center}
-}{
+    }{
   \end{center}
 }
 % ### Entry Functions
 \newcommand*{\cvmentry}[3]{
-    \ifempty{#1#2}
-      {#3}
-      {\entrytitlestyle{#1} \hfill \entrylocationstyle{#2} \newline #3} \vspace{1.618ex}
+  \ifempty{#1#2}
+  {#3}
+  {\entrytitlestyle{#1} \hfill \entrylocationstyle{#2} \newline #3} \vspace{1.618ex}
 }
 \newcommand*{\cvposition}[3]{
-    \entrypositionstyle{#1} \hfill \entrydatestyle{#2} \par
-    \ifempty{#3}{}{\descriptionstyle{#3}}
+  \entrypositionstyle{#1} \hfill \entrydatestyle{#2} \par
+  \ifempty{#3}{}{\descriptionstyle{#3}}
 }
 \newcommand*{\cventry}[5]{
-      \cvmentry{#2}{#3}{
-          \cvposition{#1}{#4}{#5}
-    }
+  \cvmentry{#2}{#3}{
+    \cvposition{#1}{#4}{#5}
+  }
 }
 
 %-------------------------------------------------------------------------------
@@ -135,8 +135,24 @@
 \newenvironment{cvitems}{
   \vspace{1ex}
   \begin{justify}
-  \begin{itemize}[leftmargin=4ex, nosep, noitemsep]
-}{
-  \end{itemize}
+    \begin{itemize}[leftmargin=4ex, nosep, noitemsep]
+      }{
+    \end{itemize}
   \end{justify}
+}
+
+%-------------------------------------------------------------------------------
+% ## Footer Formatting
+% ### Footer Font Options
+\newcommand*{\footerstyle}[1]{{\fontsize{9pt}{1em}\upshape #1}}
+% ### Footer Function
+\newcommand*{\makecvfooter}[1]{
+  \vfill
+  \begin{center}
+    \footerstyle{
+      Last updated: \today
+      \hspace{0.1em}
+      \href{#1}{\faFilePdfO}
+    }
+  \end{center}
 }
