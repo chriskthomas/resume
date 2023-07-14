@@ -18,14 +18,14 @@
 \RequirePackage{parskip}
 \setlength{\parskip}{0pt}
 % Deal with hyperlinks
-\RequirePackage{hyperref}
-\hypersetup{
+\RequirePackage[
   pdftitle={\@author Resume},
   pdfauthor={\@author},
   pdfsubject={},
   pdfkeywords={},
-  colorlinks=false
-}
+  colorlinks=false,
+  hyperfootnotes=false
+]{hyperref}
 
 % Make it easier for resume scanners
 \input{glyphtounicode}
@@ -53,7 +53,7 @@
 % ### Header Font Options
 \newcommand*{\headernamestyle}[1]{{\fontsize{18pt}{1em}\bfseries #1}}
 \newcommand*{\headerpositionstyle}[1]{{\fontsize{10pt}{1em}\scshape #1}}
-\newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\itshape #1}}
+\newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\upshape #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{10pt}{1em}\upshape #1}}
 % ### Personal Information Variables
 \newcommand*{\address}[1]{\def\@address{#1}}
@@ -88,7 +88,7 @@
 % ## Section Formatting
 % ### Section Font Formatting
 \usepackage{sectsty}
-\sectionfont{\fontsize{14pt}{1em} \sectionrule{0pt}{0pt}{-0.6ex}{1pt} }
+\sectionfont{\fontsize{14pt}{1em} \sectionrule{0pt}{0pt}{-0.6ex}{1pt}}
 % Define a section for CV
 \newcommand{\cvsection}[1]{
   \vspace{-3.5ex}
@@ -145,14 +145,21 @@
 % ## Footer Formatting
 % ### Footer Font Options
 \newcommand*{\footerstyle}[1]{{\fontsize{9pt}{1em}\upshape #1}}
+% ### Footnote command without mark, indent, or rule
+\def\lufootnote{
+  \def\footnoterule{}
+  \def\@makefntext##1{\centering##1}
+  \def\@thefnmark{}
+  \@footnotetext
+}
 % ### Footer Function
 \newcommand*{\makecvfooter}[1]{
-  \vfill
-  \begin{center}
+  \lufootnote{
+    % make hyperlink if argument is specified
     \footerstyle{
-      Last updated: \today
-      \hspace{0.1em}
-      \href{#1}{\faFilePdfO}
+      \ifempty{#1}
+      {Last updated: \today}
+      {\href{#1}{Last updated: \today}}
     }
-  \end{center}
+  }
 }
