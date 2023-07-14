@@ -19,13 +19,15 @@
 \setlength{\parskip}{0pt}
 % Deal with hyperlinks
 \RequirePackage[
+  colorlinks=false,
+  hyperfootnotes=false
+]{hyperref}
+\hypersetup{
   pdftitle={\@author Resume},
   pdfauthor={\@author},
   pdfsubject={},
   pdfkeywords={},
-  colorlinks=false,
-  hyperfootnotes=false
-]{hyperref}
+}
 
 % Make it easier for resume scanners
 \input{glyphtounicode}
