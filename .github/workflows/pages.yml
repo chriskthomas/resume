@@ -40,6 +40,8 @@ jobs:
           mkdir build
           ./vtex/bin/*/pdflatex -interaction=nonstopmode -output-directory=build resume.tex
           ./vtex/bin/*/pdflatex -interaction=nonstopmode -output-directory=build resume.tex
+      - name: Make redirect index.html
+        run: echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=resume.pdf"><script type="text/javascript">window.location.href = "resume.pdf"</script></head><body>If you are not redirected automatically, follow this <a href='resume.pdf'>link to resume</a>.</body></html>' > build/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
