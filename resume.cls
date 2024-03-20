@@ -40,6 +40,22 @@
 % Remove Page Numbers
 \pagenumbering{gobble}
 
+% ## Font
+\usepackage[sfdefault]{inter}
+
+% ### Header Font Options
+\newcommand*{\headernamestyle}[1]{{\fontsize{18pt}{1em}\interheavy #1}}
+\newcommand*{\headerpositionstyle}[1]{{\fontsize{12pt}{1em}\bfseries #1}}
+\newcommand*{\headeraddressstyle}[1]{{\fontsize{10pt}{1em}\upshape #1}}
+\newcommand*{\headerquotestyle}[1]{{\fontsize{10pt}{1em}\upshape #1}}
+
+% ### Entry Font Options
+\newcommand*{\entrytitlestyle}[1]{{\fontsize{14pt}{1em}\bfseries\MakeUppercase{#1}}}
+\newcommand*{\entrypositionstyle}[1]{{\fontsize{12pt}{1em}\bfseries #1}}
+\newcommand*{\entrydatestyle}[1]{{\fontsize{10pt}{1em}\interlight #1}}
+\newcommand*{\entrylocationstyle}[1]{{\fontsize{10pt}{1em}\interlight #1}}
+\newcommand*{\descriptionstyle}[1]{{\fontsize{11pt}{1em}\upshape #1}}
+
 %-------------------------------------------------------------------------------
 %                Define Global Functions
 %-------------------------------------------------------------------------------
@@ -52,29 +68,24 @@
 %-------------------------------------------------------------------------------
 
 % ## Header Formatting
-% ### Header Font Options
-\newcommand*{\headernamestyle}[1]{{\fontsize{18pt}{1em}\bfseries #1}}
-\newcommand*{\headerpositionstyle}[1]{{\fontsize{10pt}{1em}\scshape #1}}
-\newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\upshape #1}}
-\newcommand*{\headerquotestyle}[1]{{\fontsize{10pt}{1em}\upshape #1}}
 % ### Personal Information Variables
 \newcommand*{\address}[1]{\def\@address{#1}}
 \newcommand*{\position}[1]{\def\@position{#1}}
 \renewcommand*{\quote}[1]{\def\@quote{#1}}
 % ### Header Function
 \newcommand*{\makecvheader}{
-  \begin{center}
+\begin{center}
     \headernamestyle{
       \@author
     }
     \\
-    \vspace{0.6mm}
+    \vspace{0.6mm}%
     \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\}}
-    \vspace{0.4mm}
+    \vspace{0.4mm}%
     \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\}}
-    \vspace{-0.5mm}
+    \vspace{-0.5mm}%
     \ifthenelse{\isundefined{\@quote}}
-    {\vspace{2.0mm}}
+    {\vspace{1em}}
     {
       \vspace{1.2mm}
       \rule{\textwidth}{0.4pt}
@@ -83,40 +94,31 @@
       \vspace{-4mm}
       \rule{\textwidth}{0.4pt}
       \vspace{-1.6mm}}
-  \end{center}
+\end{center}
 }
 
 %-------------------------------------------------------------------------------
 % ## Section Formatting
 % ### Section Font Formatting
 \usepackage{sectsty}
-\sectionfont{\fontsize{14pt}{1em} \sectionrule{0pt}{0pt}{-0.6ex}{1pt}}
+\sectionfont{\fontsize{10}{1em}\selectfont \sectionrule{0pt}{0pt}{-0.618ex}{0.618pt}}
 % Define a section for CV
 \newcommand{\cvsection}[1]{
   \vspace{-3.5ex}
-  \section*{#1}
+  \section*{\uppercase{#1}}
   \vspace{-1ex}
 }
 
 %-------------------------------------------------------------------------------
 % ## Entry Formatting
-% ### Entry Font Options
-\newcommand*{\entrytitlestyle}[1]{{\fontsize{10.5pt}{1em}\bfseries #1}}
-\newcommand*{\entrypositionstyle}[1]{{\fontsize{9pt}{1em}\scshape #1}}
-\newcommand*{\entrydatestyle}[1]{{\fontsize{9pt}{1em}\slshape #1}}
-\newcommand*{\entrylocationstyle}[1]{{\fontsize{10pt}{1em}\slshape #1}}
-\newcommand*{\descriptionstyle}[1]{{\fontsize{10pt}{1em}\upshape #1}}
 % ### Entry Environment
-\newenvironment{cventries}{
-  \begin{center}
-    }{
-  \end{center}
-}
+\newenvironment{cventries}{}
+
 % ### Entry Functions
 \newcommand*{\cvmentry}[3]{
   \ifempty{#1#2}
   {#3}
-  {\entrytitlestyle{#1} \hfill \entrylocationstyle{#2} \newline #3} \vspace{1.618ex}
+  {\entrytitlestyle{#1} \hfill \entrylocationstyle{#2} \newline #3}\vspace{1.618ex}
 }
 \newcommand*{\cvposition}[3]{
   \entrypositionstyle{#1} \hfill \entrydatestyle{#2} \par
@@ -135,7 +137,7 @@
 \RequirePackage{ragged2e}
 % ### List Environment
 \newenvironment{cvitems}{
-  \vspace{1ex}
+  \vspace{0.618ex}
   \begin{justify}
     \begin{itemize}[leftmargin=4ex, nosep, noitemsep]
       }{
