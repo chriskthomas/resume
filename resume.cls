@@ -29,10 +29,6 @@
   pdfkeywords={},
 }
 
-% Make it easier for resume scanners
-\input{glyphtounicode}
-\pdfgentounicode=1
-
 % Configure page margins with geometry
 \RequirePackage{geometry}
 \geometry{left=2.0cm, top=1.5cm, right=2.0cm, bottom=1.5cm}
