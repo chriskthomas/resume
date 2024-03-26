@@ -31,7 +31,7 @@
 
 % Configure page margins with geometry
 \RequirePackage{geometry}
-\geometry{left=2.0cm, top=1.5cm, right=2.0cm, bottom=1.5cm}
+\geometry{left=2.0cm, top=1.3cm, right=2.0cm, bottom=0cm}
 
 % Remove Page Numbers
 \pagenumbering{gobble}
@@ -70,7 +70,7 @@
 \renewcommand*{\quote}[1]{\def\@quote{#1}}
 % ### Header Function
 \newcommand*{\makecvheader}{
-\begin{center}
+  \begin{center}
     \headernamestyle{
       \@author
     }
@@ -90,17 +90,18 @@
       \vspace{-4mm}
       \rule{\textwidth}{0.4pt}
       \vspace{-1.6mm}}
-\end{center}
+  \end{center}
+  \vspace{0.25ex}
 }
 
 %-------------------------------------------------------------------------------
 % ## Section Formatting
 % ### Section Font Formatting
 \usepackage{sectsty}
-\sectionfont{\fontsize{10}{1em}\selectfont \sectionrule{0pt}{0pt}{-0.618ex}{0.618pt}}
+\sectionfont{\fontsize{10}{1em}\selectfont \sectionrule{0pt}{0pt}{-0.5ex}{0.6pt}}
 % Define a section for CV
 \newcommand{\cvsection}[1]{
-  \vspace{-3.5ex}
+  \vspace{-4ex}
   \section*{\uppercase{#1}}
   \vspace{-1ex}
 }
@@ -114,7 +115,7 @@
 \newcommand*{\cvmentry}[3]{
   \ifempty{#1#2}
   {#3}
-  {\entrytitlestyle{#1} \hfill \entrylocationstyle{#2} \newline #3}\vspace{1.618ex}
+  {\entrytitlestyle{#1} \hfill \entrylocationstyle{#2} \newline #3}\vspace{1.3ex}
 }
 \newcommand*{\cvposition}[3]{
   \entrypositionstyle{#1} \hfill \entrydatestyle{#2} \par
@@ -133,7 +134,7 @@
 \RequirePackage{ragged2e}
 % ### List Environment
 \newenvironment{cvitems}{
-  \vspace{0.618ex}
+  \vspace{0.6ex}
   \begin{justify}
     \begin{itemize}[leftmargin=4ex, nosep, noitemsep]
       }{
@@ -147,10 +148,10 @@
 \newcommand*{\footerstyle}[1]{{\fontsize{9pt}{1em}\upshape #1}}
 % ### Footnote command without mark, indent, or rule
 \def\lufootnote{
-  \def\footnoterule{}
-  \def\@makefntext##1{\centering##1}
-  \def\@thefnmark{}
-  \@footnotetext
+\def\footnoterule{}
+\def\@makefntext##1{\centering##1}
+\def\@thefnmark{}
+\@footnotetext
 }
 % ### Footer Function
 \newcommand*{\makecvfooter}[1]{
