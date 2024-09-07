@@ -31,7 +31,7 @@
 
 % Configure page margins with geometry
 \RequirePackage{geometry}
-\geometry{left=2.0cm, top=1.3cm, right=2.0cm, bottom=0cm}
+\geometry{left=2.0cm, top=1.3cm, right=2.0cm, bottom=0.5cm}
 
 % Remove Page Numbers
 \pagenumbering{gobble}
