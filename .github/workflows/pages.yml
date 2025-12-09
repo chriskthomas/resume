@@ -34,14 +34,14 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Install vTeX
-        run: curl -L https://github.com/chriskthomas/vtex/releases/download/v0.0.4/vtex.tar.gz | tar -xz
+        run: curl -L https://github.com/chriskthomas/vtex/releases/download/v0.0.5/vtex.tar.gz | tar -xz
       - name: Compile resume
         run: |
           mkdir build
           ./vtex/bin/*/lualatex -interaction=nonstopmode -output-directory=build resume.tex
           ./vtex/bin/*/lualatex -interaction=nonstopmode -output-directory=build resume.tex
       - name: Make redirect index.html
-        run: echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=resume.pdf"><script type="text/javascript">window.location.href = "resume.pdf"</script></head><body>If you are not redirected automatically, follow this <a href='resume.pdf'>link to resume</a>.</body></html>' > build/index.html
+        run: echo '<!doctypehtml><meta content="0;url=resume.pdf"http-equiv=refresh><script>window.location.href="resume.pdf"</script>If you are not redirected automatically, follow this <a href=resume.pdf>link to resume</a>.' > build/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
